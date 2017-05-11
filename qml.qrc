@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Feeds.qml</file>
+        <file>CategoriesDelegate.qml</file>
+        <file>NewsDelegate.qml</file>
+    </qresource>
+</RCC>
