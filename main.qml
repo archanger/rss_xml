@@ -56,7 +56,7 @@ ApplicationWindow {
     }
     XmlRole {
       name: "thumbnail"
-      query: "media:thumbnail[2]/@url/string()"
+      query: "media:thumbnail/@url/string()"
     }
   }
 
@@ -71,7 +71,8 @@ ApplicationWindow {
       top: parent.top
       bottom: parent.bottom
     }
-    model: NewsDelegate {
+    model: newsModel
+    delegate: NewsDelegate {
       width: newsList.width
     }
   }
