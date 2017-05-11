@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
+import QtQuick.XmlListModel 2.0
 //import "qrc:/"
 
 ApplicationWindow {
@@ -56,6 +57,22 @@ ApplicationWindow {
     XmlRole {
       name: "thumbnail"
       query: "media:thumbnail[2]/@url/string()"
+    }
+  }
+
+  ListView {
+    id: newsList
+
+    anchors {
+      left: categories.right
+      leftMargin: 10
+      right: parent.right
+      rightMargin: 10
+      top: parent.top
+      bottom: parent.bottom
+    }
+    model: NewsDelegate {
+      width: newsList.width
     }
   }
 }
