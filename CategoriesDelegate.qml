@@ -6,8 +6,24 @@ Rectangle {
   width: itemWidth
   height: 80
 
+  property bool selected: ListView.isCurrentItem
+
   Text {
     id: title
+    scale: selected ? 1.0 : 0.8
+    color: selected ? "#000" : "#AAA"
+    Behavior on color {
+      ColorAnimation {
+        duration: 300
+      }
+    }
+
+    Behavior on scale {
+      PropertyAnimation {
+        duration: 300
+      }
+    }
+
     anchors {
       left: parent.left
       leftMargin: 10
@@ -24,5 +40,16 @@ Rectangle {
 
     verticalAlignment: Text.AlignVCenter
     wrapMode: Text.WordWrap
+  }
+
+  MouseArea {
+    anchors.fill: delegate
+    onClicked: {
+      categories.currentIndex = index
+      if (categories.currentUrl == url)
+        newsModel.reload()
+      else
+        categories.currentUrl = url
+    }
   }
 }

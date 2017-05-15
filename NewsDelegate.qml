@@ -1,4 +1,5 @@
 import QtQuick 2.8
+import QtQuick.Layouts 1.1
 
 Column {
   id: news
@@ -16,6 +17,10 @@ Column {
 
     Image {
       id: titleimage
+      Layout.preferredHeight: 100
+      Layout.maximumWidth: 100
+      width: sourceSize.width/sourceSize.height * 50
+      height: 50
       source: thumbnail
     }
 
